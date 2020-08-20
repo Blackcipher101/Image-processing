@@ -70,7 +70,7 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
             
    But when we have bimodal images(images with two peaks in a histogram)
    We <strong>Otsu,Riddler-Cavldier and Killer IIingworth</strong>method.
-   <img src="images/otsu.png">
+   <img src="images/Otsu.png">
     
    ### Image smoothing
    
@@ -81,10 +81,9 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
   
   ### Morphigical Transformatations
   Its a opertation on we do on binary to erode or diilate images 
-  <img src="morph.png">
+  <img src="images/morph.png">
   ### Image gradients
   We use```cv2.sobel()``` to find image deratives across a direction it gives us the edges in one direction 
-  <img src="images/sobel.png">
   We also get edges in both direction in x-y directation 
   <img src="images/lap.png">
   ### Edge detection
@@ -103,7 +102,7 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
   We can apporximate contours to make the processing of informamtaton faster without the loss of important informatation.
   <img src="images/contours.png">
   
-  ###Draw Histogram
+  ### Draw Histogram
   You can consider histogram as a graph or plot, which gives you an overall idea about the intensity distribution of an image. It is a plot with pixel values (ranging from 0 to 255, not always) in X-axis and corresponding number of pixels in the image on Y-axis.
   <img src="image/histogram.png">
   
@@ -142,10 +141,43 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
     
   ### FAST 
   Select a pixel p in the image which is to be identified as an interest point or not. Let its intensity be I_p. -> Select appropriate threshold value t. -> Now the pixel p is a corner if there exists a set of n contiguous pixels in the circle (of 16 pixels) which are all brighter than I_p + t, or all darker than I_p − t. n was chosen to be 12. -> A high-speed test was proposed to exclude a large number of non-corners.
-  <img src="images/fast.png">
+  <img src="images/fast_true.png">
   
   ### ORB
   We have a perfect mixture and also the point its not patented
   
   <img src="images/ORB.png">
+  ## Video analysis
+  
+  ### Mean shift(object tracking)
+  The intuition behind the meanshift is simple. Consider you have a set of points. (It can be a pixel distribution like histogram backprojection). You are given a   small window ( may be a circle) and you have to move that window to the area of maximum pixel density (or maximum number of points).
+  
+  <img src="images/meanshift1.png">
+  
+  ### Optical flow
+  Optical flow is basically tracking the apparent motion on a object and its patterns to do it we use Lucas-Kanade method.We have seen an assumption before, that   all the neighbouring pixels will have similar motion. Lucas-Kanade method takes a 3x3 patch around the point. So all the 9 points have the same motion. We can     find (f_x, f_y, f_t) for these 9 points. So now our problem becomes solving 9 equations with two unknown variables which is over-determined. A better solution    is obtained with least square fit method. We can track features like corners but when we track a songle corner we can draw in air with our fingers :P
+  
+  <img src="images/opticalflow.png">
+  ### Background subtracation
+  We subtract the fore ground from the moving objects so we can track them. We can do this using three methods BackgroundSubtractorMOG,BackgroundSubtractorMOG2,BackgroundSubtractorGMG and BackgroundSubtractorGMG proves to be better as it is taken morphological image and reduced noise as a result.
+  
+  <img src="images/backsub.png">
+  
+  ## Machine Learning
+  
+  ### K-Nearest Neighbor(kNN)
+  This explains the basic idea of ML where find the most probable answer by measuring its varience from the nearest sure dataset.
+  <img src="images/kNN.png">
+  
+  ### OCR
+  We uses kNN and pre given dataset to train and test the for testing digit detection for explantation it works <a href="https://www.youtube.com/watch?v=aircAruvnKk">here</a>
+  
+  ###  Quantizing Colors
+  We can quantize colors if want to drop the computation but want to still carry forward the color data. We quantize the colors using kNN clustering.
+  
+  <img src="images/quantized.png">
+  
+  ### Face detection 
+  
+  <img src="images/face.png">
   
