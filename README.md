@@ -53,7 +53,7 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
   So we convert the image to HSV ```cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)``` we changed to HSV because it gives us a range of colors with change of value.
   We make a image thresholding ```cv2.inRange(hsv, lower_blue, upper_blue)``` with a range and then we <strong>and with every pixel of both</strong> ```cv2.bitwise_and()``` it with the image so results in image only with the object
   
-  <img src="images/object_track.png,png">
+  <img src="images/object_track.png.png">
   
   ### Thresholding
   In Opencv we set a pixel value with respect to another pixel value like<br>
@@ -70,14 +70,14 @@ if the image is to large one can use ```cv2.namedWindow('image', cv.WINDOW_NORMA
             
    But when we have bimodal images(images with two peaks in a histogram)
    We <strong>Otsu,Riddler-Cavldier and Killer IIingworth</strong>method.
-   <img src="images/Otsu.png">
+   
     
    ### Image smoothing
    
   Image smoothing is just removal of the edges which results in a blurred image it is done by calling ```cv2.GassuianBlur()```. It allows to reduce the noise in the image 
   but we loose some infomartation in the process Gaussain Blur by taking an average of 5X5 matrix.
   
-  <img src="gauss.png">
+  <img src="images/Otsu.png">
   
   ### Morphigical Transformatations
   Its a opertation on we do on binary to erode or diilate images 
